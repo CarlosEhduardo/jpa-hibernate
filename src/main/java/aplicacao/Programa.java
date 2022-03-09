@@ -21,10 +21,20 @@ public class Programa {
         em.persist(p3);
         em.getTransaction().commit();*/
 
-        Pessoa p = em.find(Pessoa.class, 2);
+        /*Pessoa p = em.find(Pessoa.class, 2);
         em.close();
         emf.close();
-        System.out.println(p);
+        System.out.println(p);*/
+
+
+        Pessoa p = em.find(Pessoa.class, 2);
+        em.getTransaction().begin();
+        em.remove(p);
+        em.getTransaction().commit();
+
+        em.close();
+        emf.close();
+
         System.out.println("Transação concluída");
 
 //        System.out.println(p1);
