@@ -27,8 +27,19 @@ public class Programa {
         System.out.println(p);*/
 
 
-        Pessoa p = em.find(Pessoa.class, 2);
+        /*Pessoa p = em.find(Pessoa.class, 2);
         em.getTransaction().begin();
+        em.remove(p);
+        em.getTransaction().commit();
+
+        em.close();
+        emf.close();*/
+
+        Pessoa p = new Pessoa(null, "José Rodrigues", "jose@gmail.com");
+        em.getTransaction().begin();
+        em.persist(p);
+
+
         em.remove(p);
         em.getTransaction().commit();
 
